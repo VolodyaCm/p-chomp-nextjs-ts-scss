@@ -1,0 +1,56 @@
+.button {
+  align-items: center;
+  background-color: rgba(126, 130, 143, 0.1);
+  background-color: white;
+  border: 0;
+  border-radius: 6px;
+  display: inline-flex;
+  font-size: 18px;
+  font-size: 18px;
+  height: 60px;
+  justify-content: center;
+  min-width: 45px;
+  width: 160px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.flat {
+  background-color: var(--color-btn-flat);
+}
+
+.primary {
+  background-color: white;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--color-primary);
+
+  &.filled {
+    background-color: var(--color-primary);
+    background-image: url('/static/8_buttonbg.svg');
+    color: white;
+  }
+}
+
+.outline {
+  background-color: white;
+  border: 1px solid rgba(97, 114, 131, 0.2);
+}
+
+.small {
+  height: 45px;
+  width: 116px;
+}
+
+.square {
+  height: 60px;
+  width: 60px;
+
+  &.small {
+    height: 45px;
+    width: 45px;
+  }
+}
