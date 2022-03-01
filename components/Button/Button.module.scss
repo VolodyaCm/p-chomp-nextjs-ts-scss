@@ -21,7 +21,8 @@
   background-color: var(--color-btn-flat);
 }
 
-.primary {
+.primary,
+%primary {
   background-color: white;
   background-position: 0 0;
   background-repeat: no-repeat;
@@ -53,4 +54,8 @@
     height: 45px;
     width: 45px;
   }
+}
+
+.toggle {
+  @extend %primary;
 }

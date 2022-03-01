@@ -20,7 +20,10 @@
       "@pages/*": ["./pages/*"],
       "@components/*": ["./components/*"],
       "@containers/*": ["./containers/*"],
-      "@styles/*": ["./styles/*"]
+      "@layout/*": ["./containers/layout/*"],
+      "@styles/*": ["./styles/*"],
+      "@img/*": ["./img/*"],
+      "@icons/*": ["./icons/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

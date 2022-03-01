@@ -1,8 +1,14 @@
-import React, { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import React, {
+  useState,
+  DetailedHTMLProps,
+  HTMLAttributes,
+  ReactNode,
+  MouseEvent,
+} from 'react';
 import styles from './Button.module.scss';
 import cn from 'classnames';
 
-interface HtagProps
+export interface ButtonProps
   extends DetailedHTMLProps<
     HTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
@@ -15,6 +21,7 @@ interface HtagProps
   filled?: boolean;
   flat?: boolean;
   square?: boolean;
+  toggle?: boolean;
 }
 
 const Button = ({
@@ -27,10 +34,21 @@ const Button = ({
   filled,
   flat,
   square,
+  toggle = false,
+  onClick,
   ...props
-}: HtagProps) => {
+}: ButtonProps) => {
+  const [state, setState] = useState(toggle);
+
+  const toggleBtn = (e: MouseEvent<HTMLButtonElement>): void => {
+    if (onClick) onClick(e);
+    if (typeof toggle !== 'boolean') return;
+    setState((prev) => !prev);
+  };
+
   return (
     <button
+      onClick={toggleBtn}
       className={cn(
         styles.button,
         {
@@ -41,6 +59,7 @@ const Button = ({
           [styles.flat]: flat,
           [styles['btn-icon']]: icon,
           [styles.square]: square,
+          [styles.toggle]: state,
         },
         className
       )}

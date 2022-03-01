@@ -1,0 +1,44 @@
+.nav {
+  display: grid;
+  grid-template-columns: 2fr min-content;
+}
+
+.cover {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.nav-links-list-container {
+  display: flex;
+  height: 100vh;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 120px;
+  width: 100vw;
+
+  .nav-links-list {
+    background-color: white;
+    box-shadow: 0 50px 80px -30px #35344833;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    position: relative;
+    transform: translate(0, -110%);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    width: 100%;
+
+    &.show {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.end-items {
+  display: flex;
+  gap: 14px;
+}

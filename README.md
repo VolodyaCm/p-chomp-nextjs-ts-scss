@@ -6,6 +6,12 @@ Setup Husky:
 > npx husky install
 ```
 
+Install modules:
+
+```bash
+> npm i
+```
+
 Run the development server:
 
 ```bash

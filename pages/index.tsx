@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Htag from '@components/Htag';
+import withLayout from '@layout/.';
 
 const Home: NextPage = () => {
   return (
@@ -12,4 +13,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default withLayout(Home);

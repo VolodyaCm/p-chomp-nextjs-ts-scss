@@ -19,7 +19,10 @@
           ["@pages", "./pages"],
           ["@components", "./components"],
           ["@containers", "./containers"],
-          ["@styles", "./styles"]
+          ["@layout", "./components/layout"],
+          ["@styles", "./styles"],
+          ["@img", "./img"],
+          ["@icons", "./icons"]
         ]
       }
     }
