@@ -23,7 +23,9 @@
       "@layout/*": ["./containers/layout/*"],
       "@styles/*": ["./styles/*"],
       "@img/*": ["./img/*"],
-      "@icons/*": ["./icons/*"]
+      "@icons/*": ["./icons/*"],
+      "@prtypes/*": ["./prtypes/*"],
+      "@store/*": ["./store/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

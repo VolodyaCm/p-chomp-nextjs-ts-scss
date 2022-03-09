@@ -9,10 +9,12 @@ import CartCounter from '@components/CartCounter';
 import Link from '@components/Link';
 import cn from 'classnames';
 import styles from './Nav.module.scss';
+import Cart from '@containers/Cart';
 
 const Nav = () => {
   const { asPath } = useRouter();
   const [menu, setMenu] = useState(false);
+  const [cartState, setCartState] = useState(false);
 
   const changeMenu = () => {
     setMenu((prev) => !prev);
@@ -20,6 +22,14 @@ const Nav = () => {
 
   const closeMenu = () => {
     setMenu(false);
+  };
+
+  const changeCartState = () => {
+    setCartState((prev) => !prev);
+  };
+
+  const closeCart = () => {
+    setCartState(false);
   };
 
   useEffect(() => {
@@ -37,65 +47,73 @@ const Nav = () => {
   }, []);
 
   return (
-    <div className={cn(layoutStyles['section-container'], styles.nav)}>
-      <div className="logo">
-        <Image width="40px" height="51px" src="/static/1_logo.svg" alt="logo" />
-      </div>
+    <>
+      <Cart onClose={closeCart} visible={cartState} />
+      <div className={cn(layoutStyles['section-container'], styles.nav)}>
+        <div className="logo">
+          <Image
+            width="40px"
+            height="51px"
+            src="/static/1_logo.svg"
+            alt="logo"
+          />
+        </div>
 
-      <div className={styles['end-items']}>
-        <Button square primary filled>
-          <CartIconSVG />
-          <CartCounter count={0} />
-        </Button>
+        <div className={styles['end-items']}>
+          <Button square primary filled onClick={changeCartState}>
+            <CartIconSVG />
+            <CartCounter count={0} />
+          </Button>
 
-        <Button
-          className={styles['toggle-button']}
-          square
-          flat
-          filled
-          toggle={false}
-          onClick={changeMenu}
-        >
-          <BarsIconSVG />
-        </Button>
-
-        {menu && (
-          <div
-            id="target=close-menu"
-            onClick={closeMenu}
-            className={styles.cover}
-          ></div>
-        )}
-
-        <div
-          id="nav-links-list-container-target"
-          className={styles['nav-links-list-container']}
-        >
-          <nav
-            className={cn(styles['nav-links-list'], {
-              [styles.hide]: !menu,
-              [styles.show]: menu,
-            })}
+          <Button
+            className={styles['toggle-button']}
+            square
+            flat
+            filled
+            toggle={false}
+            onClick={changeMenu}
           >
-            <Link active={true} href="/home">
-              Home
-            </Link>
-            <Link active={asPath === '/order'} href="/order">
-              Order
-            </Link>
-            <Link active={asPath === '/company'} href="/company">
-              Company
-            </Link>
-            <Link active={asPath === '/faq'} href="/faq">
-              FAQ
-            </Link>
-            <Link active={asPath === '/contact'} href="/contact">
-              Contact
-            </Link>
-          </nav>
+            <BarsIconSVG />
+          </Button>
+
+          {menu && (
+            <div
+              id="target=close-menu"
+              onClick={closeMenu}
+              className={styles.cover}
+            ></div>
+          )}
+
+          <div
+            id="nav-links-list-container-target"
+            className={styles['nav-links-list-container']}
+          >
+            <nav
+              className={cn(styles['nav-links-list'], {
+                [styles.hide]: !menu,
+                [styles.show]: menu,
+              })}
+            >
+              <Link active={true} href="/home">
+                Home
+              </Link>
+              <Link active={asPath === '/order'} href="/order">
+                Order
+              </Link>
+              <Link active={asPath === '/company'} href="/company">
+                Company
+              </Link>
+              <Link active={asPath === '/faq'} href="/faq">
+                FAQ
+              </Link>
+              <Link active={asPath === '/contact'} href="/contact">
+                Contact
+              </Link>
+            </nav>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

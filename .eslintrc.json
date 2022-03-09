@@ -22,7 +22,9 @@
           ["@layout", "./components/layout"],
           ["@styles", "./styles"],
           ["@img", "./img"],
-          ["@icons", "./icons"]
+          ["@icons", "./icons"],
+          ["@prtypes", "./prtypes"],
+          ["@store", "./store"]
         ]
       }
     }

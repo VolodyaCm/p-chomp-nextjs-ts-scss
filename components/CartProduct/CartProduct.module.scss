@@ -1,0 +1,17 @@
+.product {
+  column-gap: 16px;
+  display: grid;
+  grid-template-columns: max-content 2fr max-content;
+  grid-template-rows: 1rf;
+  row-gap: 24px;
+
+  img {
+    height: 60px;
+    width: 60px;
+  }
+
+  h1 {
+    font-size: 16px;
+    margin: 0;
+  }
+}

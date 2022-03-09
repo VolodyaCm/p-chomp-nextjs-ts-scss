@@ -22,6 +22,9 @@ export interface ButtonProps
   flat?: boolean;
   square?: boolean;
   toggle?: boolean;
+  full?: boolean;
+  contentOnly?: boolean;
+  error?: boolean;
 }
 
 const Button = ({
@@ -34,7 +37,10 @@ const Button = ({
   filled,
   flat,
   square,
+  full,
+  contentOnly,
   toggle = false,
+  error,
   onClick,
   ...props
 }: ButtonProps) => {
@@ -60,6 +66,9 @@ const Button = ({
           [styles['btn-icon']]: icon,
           [styles.square]: square,
           [styles.toggle]: state,
+          [styles.full]: full,
+          [styles['content-only']]: contentOnly,
+          [styles['error']]: error,
         },
         className
       )}

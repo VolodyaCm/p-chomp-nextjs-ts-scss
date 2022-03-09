@@ -1,0 +1,18 @@
+.flex {
+  display: flex;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.text-regular {
+  color: var(--color-text);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.34;
+}

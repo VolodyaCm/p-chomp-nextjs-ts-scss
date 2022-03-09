@@ -6,6 +6,7 @@
     "indentation": [2],
     "color-hex-case": "upper",
     "color-named": "always-where-possible",
-    "max-nesting-depth": [6, {}]
+    "max-nesting-depth": [6, {}],
+    "selector-max-compound-selectors": [6, {}]
   }
 }

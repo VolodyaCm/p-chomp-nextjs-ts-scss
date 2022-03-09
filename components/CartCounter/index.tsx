@@ -1,6 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import styles from './CartCounter.module.scss';
-
 interface CartCouterProps
   extends DetailedHTMLProps<
     HTMLAttributes<HTMLButtonElement>,
