@@ -1,5 +1,6 @@
 @import './layout';
 @import './typography';
+@import './colors';
 
 html,
 body {
@@ -16,15 +17,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-
-:root {
-  --color-primary: #35B8BE;
-  --color-btn-flat: rgba(126, 130, 143, 0.1);
-  --def-animation: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-  --color-text: #546285;
-  --color-link: #28224B;
-  --color-error: #FF8946;
-  --color-section: #F6FCFC;
 }

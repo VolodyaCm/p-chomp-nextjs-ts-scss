@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <header className={`container section-container ${styles.header}`}>
+    <header className={`container ${styles.header}`}>
       <Htag asTitle className={styles.h1}>
         Beautiful food & takeaway,{' '}
         <span className={styles.highlight}>delivered</span> to your door.

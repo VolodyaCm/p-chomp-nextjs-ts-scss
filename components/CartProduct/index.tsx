@@ -9,7 +9,6 @@ const CartProduct = ({ product }: CartProductType) => {
   const [count, setCount] = useState(1);
 
   const changeCount = (e: SyntheticEvent<HTMLInputElement>) => {
-    console.log(e);
     const target = e.target as HTMLInputElement;
     setCount(Number(target.value));
   };
