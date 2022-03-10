@@ -1,0 +1,29 @@
+.header {
+  align-items: center;
+  background-image: url('/static/header-bg.svg');
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+
+  .header-img-container {
+    margin: 60px 0;
+  }
+}
+
+.highlight {
+  color: var(--color-primary);
+}
+
+.h1 {
+  margin: 20px 0;
+}
+
+.place-order-btn {
+  margin: 45px 0 30px;
+  width: 195px;
+}
+
+.trustpilot-p {
+  margin: 12px 0 16px;
+}

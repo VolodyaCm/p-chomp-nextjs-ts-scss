@@ -1,4 +1,5 @@
 @import './layout';
+@import './typography';
 
 html,
 body {
@@ -25,4 +26,5 @@ a {
   --color-text: #546285;
   --color-link: #28224B;
   --color-error: #FF8946;
+  --color-section: #F6FCFC;
 }
