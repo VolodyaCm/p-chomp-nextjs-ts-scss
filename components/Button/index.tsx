@@ -39,7 +39,7 @@ const Button = ({
   square,
   full,
   contentOnly,
-  toggle = false,
+  toggle,
   error,
   onClick,
   ...props

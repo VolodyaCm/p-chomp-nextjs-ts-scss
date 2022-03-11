@@ -1,0 +1,12 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  width: 100%;
+
+  button {
+    flex-grow: 1;
+    min-width: 160px;
+  }
+}
