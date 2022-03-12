@@ -62,7 +62,7 @@ const Nav = () => {
         <div className={styles['end-items']}>
           <Button square primary filled onClick={changeCartState}>
             <CartIconSVG />
-            <CartCounter count={0} />
+            <CartCounter />
           </Button>
 
           <Button

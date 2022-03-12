@@ -1,17 +1,16 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { AppContext } from '@store/.';
+import { DetailedHTMLProps, HTMLAttributes, useContext } from 'react';
 import styles from './CartCounter.module.scss';
-interface CartCouterProps
-  extends DetailedHTMLProps<
-    HTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
-  count: number;
-}
+type CartCouterProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
 
-const CartCouter = ({ count }: CartCouterProps) => {
+const CartCouter = ({}: CartCouterProps) => {
+  const { state } = useContext(AppContext);
   return (
     <div className={styles.container}>
-      <div className={styles['cart-counter']}>{count}</div>
+      <div className={styles['cart-counter']}>{state.cart.items.length}</div>
     </div>
   );
 };

@@ -41,14 +41,8 @@ const BrowseOurMenuContainer = ({ products }: BrowseOurMenuContainerProps) => {
         tabs={['Burgers', 'Sides', 'Drinks']}
       />
       <div className={styles['products-list']}>
-        {filteredProducts.map(({ id, img, title, price, description }) => (
-          <Product
-            key={id}
-            img={img}
-            name={title}
-            price={price}
-            description={description}
-          />
+        {filteredProducts.map((product) => (
+          <Product key={product.id} product={product} />
         ))}
       </div>
     </section>

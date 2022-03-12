@@ -1,27 +1,39 @@
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useState, useContext } from 'react';
 import Image from 'next/image';
 import Button from '@components/Button';
 import Input from '@components/Input';
 import styles from './Product.module.scss';
+import { AppContext } from '@store/.';
+import ProductType from '@prtypes/Product';
+import { Types as CartTypes } from '@store/reducers/cart';
 
 interface ProductComponentProps {
-  img: string;
-  name: string;
-  price: number;
-  description: string;
+  product: ProductType;
 }
 
-const ProductComponent = ({
-  img,
-  name,
-  price,
-  description,
-}: ProductComponentProps) => {
+const ProductComponent = ({ product }: ProductComponentProps) => {
   const [count, setCount] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const { dispatch } = useContext(AppContext);
+  const { img, title: name, price, description } = product;
 
   const changeCount = (e: SyntheticEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     setCount(Number(target.value));
+  };
+
+  const addToCart = () => {
+    setLoading(true);
+    dispatch({
+      type: CartTypes.Add,
+      payload: {
+        cartProduct: {
+          product,
+          quantity: count,
+        },
+      },
+    });
+    setTimeout(() => setLoading(false), 400);
   };
 
   return (
@@ -42,8 +54,8 @@ const ProductComponent = ({
         min="1"
         pattern="^[0-9]+$"
       />
-      <Button primary filled small>
-        Add to Cart
+      <Button primary filled small onClick={addToCart}>
+        {loading ? 'Adding...' : 'Add to Cart'}
       </Button>
     </div>
   );

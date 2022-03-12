@@ -1,16 +1,40 @@
-import { useState, SyntheticEvent } from 'react';
+import { useState, SyntheticEvent, useEffect, useContext } from 'react';
 import Button from '@components/Button';
 import styles from './CartProduct.module.scss';
 import Image from 'next/image';
 import Input from '@components/Input';
 import CartProductType from '@prtypes/CartProduct';
+import { AppContext } from '@store/.';
+import { Types as CartTypes } from '@store/reducers/cart';
 
-const CartProduct = ({ product }: CartProductType) => {
-  const [count, setCount] = useState(1);
+const CartProduct = ({ product, quantity }: CartProductType) => {
+  const [count, setCount] = useState(quantity);
+  const { dispatch } = useContext(AppContext);
+
+  useEffect(() => setCount(quantity), [quantity]);
+
+  const changeQuantity = (quantity: number) => {
+    dispatch({
+      type: CartTypes.ChangeQuantity,
+      payload: {
+        id: product.id,
+        quantity,
+      },
+    });
+  };
+
+  const removeProduct = () => {
+    dispatch({
+      type: CartTypes.Delete,
+      payload: {
+        id: product.id,
+      },
+    });
+  };
 
   const changeCount = (e: SyntheticEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
-    setCount(Number(target.value));
+    changeQuantity(Number(target.value));
   };
 
   return (
@@ -19,7 +43,7 @@ const CartProduct = ({ product }: CartProductType) => {
       <div>
         <h1>{product.title}</h1>
         <div>$ {product.price.toFixed(2)} USD</div>
-        <Button contentOnly error>
+        <Button contentOnly error onClick={removeProduct}>
           Remove
         </Button>
       </div>

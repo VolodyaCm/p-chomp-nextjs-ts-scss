@@ -7,6 +7,8 @@ import Htag from '@components/Htag';
 import CartProduct from '@components/CartProduct';
 import { AppContext } from '@store/.';
 import CartProductType from '@prtypes/CartProduct';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface CartProps {
   visible?: boolean;
@@ -18,11 +20,7 @@ const Cart = ({ visible = true, onClose }: CartProps) => {
     state: { cart },
   } = useContext(AppContext);
   const [showCart, setShowCart] = useState(false);
-
-  const getTotal = () =>
-    `$ ${cart.items
-      .reduce((sum, { product: { price } }) => sum + price, 0)
-      .toFixed(2)} USD`;
+  const [totalPrice, setTotalPrice] = useState('');
 
   const close = () => {
     setShowCart(false);
@@ -30,6 +28,17 @@ const Cart = ({ visible = true, onClose }: CartProps) => {
       onClose();
     }, 100);
   };
+
+  useEffect(() => {
+    const total = `$ ${cart.items
+      .reduce(
+        (sum, { product: { price }, quantity }) => sum + price * quantity,
+        0
+      )
+      .toFixed(2)} USD`;
+
+    setTotalPrice(total);
+  }, [cart.items]);
 
   useEffect(() => {
     if (visible) setShowCart(true);
@@ -60,20 +69,42 @@ const Cart = ({ visible = true, onClose }: CartProps) => {
             <CloseIconSVG />
           </Button>
         </div>
-        <div className={`${styles.section} ${styles['products-list']}`}>
-          {cart.items.map((product: CartProductType) => (
-            <CartProduct key={product.product.title} {...product} />
-          ))}
-        </div>
-        <div className={`${styles.section} ${styles.submit}`}>
-          <div className={`w100 flex flex-between ${styles.subtotal}`}>
-            <span className="text-regular">Subtotal:</span>{' '}
-            <strong>{getTotal()}</strong>
+        {!cart.items.length && (
+          <div className={styles['no-items']}>
+            <p>We couldn&apos;t find any items in your cart.</p>
+            <Link href="/orders">
+              <a href="">
+                <Button primary filled>
+                  Start an Order
+                </Button>
+              </a>
+            </Link>
+            <Image
+              width={85}
+              height={53}
+              src="/static/no-items-arrow.svg"
+              alt="No products"
+            />
           </div>
-          <Button primary filled full className="w100">
-            Continue to Checkout
-          </Button>
-        </div>
+        )}
+        {cart.items.length && (
+          <>
+            <div className={`${styles.section} ${styles['products-list']}`}>
+              {cart.items.map((product: CartProductType) => (
+                <CartProduct key={product.product.title} {...product} />
+              ))}
+            </div>
+            <div className={`${styles.section} ${styles.submit}`}>
+              <div className={`w100 flex flex-between ${styles.subtotal}`}>
+                <span className="text-regular">Subtotal:</span>{' '}
+                <strong>{totalPrice}</strong>
+              </div>
+              <Button primary filled full className="w100">
+                Continue to Checkout
+              </Button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
