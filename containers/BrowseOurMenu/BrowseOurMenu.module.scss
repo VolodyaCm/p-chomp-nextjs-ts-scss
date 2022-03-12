@@ -1,0 +1,18 @@
+.s-our-menu {
+  background-color: var(--color-section);
+
+  .h1 {
+    color: var(--color-primary);
+    margin: 20px 0;
+  }
+
+  .products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tabs {
+    margin-bottom: 40px;
+  }
+}

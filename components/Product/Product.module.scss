@@ -1,0 +1,20 @@
+.product {
+  background-color: white;
+  border: 1px solid rgba(53, 184, 190, 0.15);
+  border-radius: 6px;
+  padding: 16px;
+  transition: border-color 0.4s;
+
+  img {
+    border-radius: 8px;
+  }
+
+  input {
+    margin-right: 8px;
+    width: 60px;
+  }
+
+  &:hover {
+    border-color: rgba(53, 184, 190, 0.5);
+  }
+}

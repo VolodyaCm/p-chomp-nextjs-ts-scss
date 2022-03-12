@@ -25,7 +25,8 @@ const Layout = ({ children }: LayoutProps) => {
   );
 };
 
-const withLayout = <T extends Record<string, unknown>>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const withLayout = <T extends Record<string, any>>(
   Component: FunctionComponent<T>
 ) => {
   const withLayoutComponent = (props: T): JSX.Element => (
