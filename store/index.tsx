@@ -1,6 +1,8 @@
-import { createContext, useReducer, Dispatch, FC } from 'react';
-import cartReducer, { CartActionsType, CartStateType } from './reducers/cart';
 import cookie from 'js-cookie';
+import cartReducer, { CartActionsType, CartStateType } from './reducers/cart';
+import { createContext, useReducer, Dispatch, FC } from 'react';
+import UserType from '@prtypes/User';
+import userReducer, { UserActionsType } from './reducers/user';
 
 const getCartItemsFromCookies = () => {
   const cartJSON = cookie.get('cart');
@@ -9,12 +11,14 @@ const getCartItemsFromCookies = () => {
 };
 
 type StateType = {
+  user: UserType | null;
   cart: CartStateType;
 };
 
-type MainReducerActionsType = CartActionsType;
+type MainReducerActionsType = CartActionsType | UserActionsType;
 
 const initialStore: StateType = {
+  user: null,
   cart: {
     items: getCartItemsFromCookies(),
   },
@@ -28,8 +32,12 @@ export const AppContext = createContext<{
   dispatch: () => null,
 });
 
-const mainReducer = ({ cart }: StateType, action: MainReducerActionsType) => ({
-  cart: cartReducer(cart, action),
+const mainReducer = (
+  { cart, user }: StateType,
+  action: MainReducerActionsType
+) => ({
+  cart: cartReducer(cart, action as CartActionsType),
+  user: userReducer(user, action as UserActionsType),
 });
 
 const StoreProvider: FC = ({ children }) => {

@@ -5,7 +5,7 @@ import StoreProvider from '@store/.';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <StoreProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </StoreProvider>
   );
 }
