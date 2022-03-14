@@ -10,6 +10,7 @@ interface HtagProps
   size?: 1 | 2 | 3 | 4;
   asTitle?: boolean;
   children: ReactNode;
+  primary?: boolean;
 }
 
 const Htag = ({
@@ -17,13 +18,14 @@ const Htag = ({
   children,
   className,
   asTitle = false,
+  primary,
   ...props
 }: HtagProps) => {
   const getStyles = (tagName: 'h1' | 'h2' | 'h3' | 'h4') => {
     return cn(
       styles.htag,
       styles[tagName],
-      { [styles.title]: asTitle },
+      { [styles.title]: asTitle, [styles.primary]: primary },
       className
     );
   };

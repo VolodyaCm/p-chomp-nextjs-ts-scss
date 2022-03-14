@@ -87,6 +87,46 @@ const Home: NextPage<HomePageProps> = ({ products }) => {
         </article>
       </section>
       <BrowseOurMenuContainer products={products.data} />
+      <section className={`container container-mr ${styles['s-order-online']}`}>
+        <Image
+          src="/static/f24.png"
+          alt="Simple Checkout"
+          width={353}
+          height={358}
+          layout="responsive"
+        />
+        <Htag asTitle primary>
+          Order online with our simple checkout.
+        </Htag>
+        <p className="text-regular text-center">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry&apos;s standard dummy text
+          ever since the 1500.
+        </p>
+        <Button primary filled className={styles['main-btn']}>
+          See our FAQ
+        </Button>
+      </section>
+      <section className="container container-mr">
+        <Htag asTitle primary>
+          Call our store and takeaway when it suits you best.
+        </Htag>
+        <p className="text-regular text-center">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry&apos;s standard dummy text
+          ever since the 1500.
+        </p>
+        <Button primary filled className={styles['main-btn']}>
+          Ph. +61 233 2333
+        </Button>
+        <Image
+          src="/static/f26.png"
+          alt="Simple Checkout"
+          width={353}
+          height={358}
+          layout="responsive"
+        />
+      </section>
     </>
   );
 };

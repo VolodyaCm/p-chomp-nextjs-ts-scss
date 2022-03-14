@@ -4,6 +4,7 @@ import Tabs, { TabType } from '@components/Tabs';
 import Product from '@components/Product';
 import styles from './BrowseOurMenu.module.scss';
 import ProductType from '@prtypes/Product';
+import Button from '@components/Button';
 
 interface BrowseOurMenuContainerProps {
   products: ProductType[];
@@ -45,6 +46,9 @@ const BrowseOurMenuContainer = ({ products }: BrowseOurMenuContainerProps) => {
           <Product key={product.id} product={product} />
         ))}
       </div>
+      <Button primary filled className={styles['see-full-btn']}>
+        See Full Menu
+      </Button>
     </section>
   );
 };
