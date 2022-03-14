@@ -5,9 +5,18 @@ import { getProduts, deleteProduct } from '@fireb/db/product';
 import ProductType from '@prtypes/Product';
 import Image from 'next/image';
 import Button from '@components/Button';
+import { useAuth } from '@fireb/authentication';
+import { useRouter } from 'next/router';
 
 const AdminPage = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const { currentUser, logout } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push('/signin');
+  };
 
   const fetchProducts = async () => {
     const products = (await getProduts()) as ProductType[];
@@ -38,11 +47,18 @@ const AdminPage = () => {
   };
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    if (!currentUser) {
+      router.push('/signin');
+    } else {
+      fetchProducts();
+    }
+  }, [currentUser]);
+
+  if (!currentUser) return null;
 
   return (
     <div className={styles.container}>
+      <Button onClick={handleLogout}>Logout</Button>
       <AddProductForm onAddProduct={handleAddProduct} />
       <div className={styles['table-container']}>
         <table>

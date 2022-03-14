@@ -1,41 +1,17 @@
 import '.';
 import { AppContext } from '@store/.';
-import { useContext, useEffect, useState } from 'react';
-import { Types as UserTypes } from '@store/reducers/user';
+import { useContext, useState } from 'react';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged,
 } from 'firebase/auth';
 
 export const useAuth = () => {
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
   const auth = getAuth();
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch({
-          type: UserTypes.Add,
-          payload: {
-            user: {
-              uid: user.uid,
-              email: user.email,
-              emailVerified: user.emailVerified,
-            },
-          },
-        });
-      } else {
-        dispatch({
-          type: UserTypes.Delete,
-        });
-      }
-    });
-    return unsubscribe;
-  }, []);
 
   const login = async (email: string, password: string) => {
     try {
