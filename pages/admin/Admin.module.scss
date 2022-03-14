@@ -1,0 +1,35 @@
+.container {
+  background-color: var(--color-section);
+  display: flex;
+  gap: 20px;
+  height: 100vh;
+  padding: 20px;
+  width: 100%;
+
+  .table-container {
+    height: calc(100vh - 40px);
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+
+  .table-head-row {
+    background: white;
+    border-radius: 8px;
+    z-index: 1;
+  }
+
+  table {
+    border: 1px solid rgba(53, 184, 190, 0.5);
+    border-radius: 8px;
+    height: fit-content;
+
+    tr {
+      background-color: white;
+      height: 40px;
+
+      td {
+        padding: 10px;
+      }
+    }
+  }
+}

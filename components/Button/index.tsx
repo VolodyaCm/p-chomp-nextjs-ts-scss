@@ -1,16 +1,16 @@
 import React, {
   useState,
   DetailedHTMLProps,
-  HTMLAttributes,
   ReactNode,
   MouseEvent,
+  ButtonHTMLAttributes,
 } from 'react';
 import styles from './Button.module.scss';
 import cn from 'classnames';
 
 export interface ButtonProps
   extends DetailedHTMLProps<
-    HTMLAttributes<HTMLButtonElement>,
+    ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
   children: ReactNode;

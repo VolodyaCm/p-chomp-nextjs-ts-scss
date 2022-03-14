@@ -1,10 +1,9 @@
-// import { doAuth } from '../../firebase/clientApp';
 import Input from '@components/Input';
 import Button from '@components/Button';
 import styles from './Signup.module.scss';
 import Image from 'next/image';
 import { SyntheticEvent, useState } from 'react';
-import { useAuth } from '../../firebase/clientApp';
+import { useAuth } from '@fireb/authentication';
 
 interface HandlerProps extends SyntheticEvent<HTMLInputElement> {
   target: HTMLInputElement;

@@ -1,0 +1,13 @@
+.container {
+  height: fit-content;
+
+  form {
+    width: 100%;
+  }
+
+  .textarea {
+    max-height: 200px;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}

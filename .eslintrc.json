@@ -25,7 +25,8 @@
           ["@img", "./img"],
           ["@icons", "./icons"],
           ["@prtypes", "./prtypes"],
-          ["@store", "./store"]
+          ["@store", "./store"],
+          ["@fireb", "./fireb"]
         ]
       }
     }

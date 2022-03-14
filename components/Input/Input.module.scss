@@ -3,11 +3,16 @@
   border: 1px solid #DDD;
   border-radius: 6px;
   font-size: 18px;
-
   height: 45px;
   min-width: 45px;
   padding: 8px 12px;
   width: 116px;
+}
+
+.textarea {
+  height: auto;
+  min-height: 45px;
+  min-width: inherit;
 }
 
 .large {

@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type Product from '@prtypes/Product';
+import Product, { ProductCategoryOptions } from '@prtypes/Product';
 
 type Data = {
   next: string;
@@ -16,7 +16,7 @@ const products: Product[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     price: 4,
     count: 10,
-    category: 'drink',
+    category: ProductCategoryOptions.drink,
     img: '/static/f20.png',
   },
   {
@@ -27,7 +27,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'drink',
+    category: ProductCategoryOptions.drink,
     img: '/static/f21.png',
   },
   {
@@ -38,7 +38,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'drink',
+    category: ProductCategoryOptions.drink,
     img: '/static/f22.png',
   },
   {
@@ -49,7 +49,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'drink',
+    category: ProductCategoryOptions.drink,
     img: '/static/f23.png',
   },
   {
@@ -60,7 +60,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'side',
+    category: ProductCategoryOptions.side,
     img: '/static/f16.png',
   },
   {
@@ -71,7 +71,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'side',
+    category: ProductCategoryOptions.side,
     img: '/static/f17.png',
   },
   {
@@ -82,7 +82,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'side',
+    category: ProductCategoryOptions.side,
     img: '/static/f18.png',
   },
   {
@@ -93,7 +93,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'side',
+    category: ProductCategoryOptions.side,
     img: '/static/f19.png',
   },
   {
@@ -104,7 +104,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'burger',
+    category: ProductCategoryOptions.side,
     img: '/static/f10.png',
   },
   {
@@ -115,7 +115,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'burger',
+    category: ProductCategoryOptions.burger,
     img: '/static/f11.png',
   },
   {
@@ -126,7 +126,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'burger',
+    category: ProductCategoryOptions.burger,
     img: '/static/f12.png',
   },
   {
@@ -137,7 +137,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'burger',
+    category: ProductCategoryOptions.burger,
     img: '/static/f13.png',
   },
   {
@@ -148,7 +148,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'burger',
+    category: ProductCategoryOptions.burger,
     img: '/static/f14.png',
   },
   {
@@ -159,7 +159,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: 'burger',
+    category: ProductCategoryOptions.burger,
     img: '/static/f15.png',
   },
 ];
