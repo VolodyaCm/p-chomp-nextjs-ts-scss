@@ -38,25 +38,31 @@ const ProductComponent = ({ product }: ProductComponentProps) => {
 
   return (
     <div className={styles.product}>
-      <Image
-        src={img}
-        height={298}
-        width={298}
-        alt={name}
-        layout="responsive"
-      />
-      <p className="regular-text">{description}</p>
-      <p className="color-primary">$ {price.toFixed(2)} USD</p>
-      <Input
-        onChange={changeCount}
-        value={count}
-        type="number"
-        min="1"
-        pattern="^[0-9]+$"
-      />
-      <Button primary filled small onClick={addToCart}>
-        {loading ? 'Adding...' : 'Add to Cart'}
-      </Button>
+      <div className={styles['product-image-container']}>
+        <Image
+          className={styles['product-image']}
+          src={img}
+          height={298}
+          width={298}
+          alt={name}
+          layout="responsive"
+        />
+      </div>
+      <div>
+        <h1 className={styles.title}>{name}</h1>
+        <p className="color-primary">$ {price.toFixed(2)} USD</p>
+        <p className="regular-text">{description}</p>
+        <Input
+          onChange={changeCount}
+          value={count}
+          type="number"
+          min="1"
+          pattern="^[0-9]+$"
+        />
+        <Button primary filled small onClick={addToCart}>
+          {loading ? 'Adding...' : 'Add to Cart'}
+        </Button>
+      </div>
     </div>
   );
 };

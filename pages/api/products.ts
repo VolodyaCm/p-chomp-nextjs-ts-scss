@@ -104,7 +104,7 @@ const products: Product[] = [
     description:
       // eslint-disable-next-line max-len
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    category: ProductCategoryOptions.side,
+    category: ProductCategoryOptions.burger,
     img: '/static/f10.png',
   },
   {

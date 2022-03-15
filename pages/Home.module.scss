@@ -13,20 +13,44 @@
   }
 
   .about-us-btn {
-    margin: 45px 0;
+    margin: 45px calc(50% - 125px);
     width: 250px;
   }
 
   .fresh-poroducts-img-container {
     margin-top: 45px;
+    max-width: 523px !important;
+  }
+
+  @media screen and (min-width: 768px) {
+    .content-container {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .description,
+    .h1 {
+      text-align: left;
+    }
+
+    .about-us-btn {
+      margin: 45px 0;
+    }
   }
 }
 
 
 .s-how-it-works {
-  display: grid;
-  grid-row-gap: 32px;
-  justify-content: center;
+  .articles {
+    display: grid;
+    grid-row-gap: 32px;
+    justify-content: center;
+  }
 
   .h1 {
     color: var(--color-primary);
@@ -38,9 +62,69 @@
     flex-direction: column;
     max-width: 510px;
   }
+
+  @media screen and (min-width: 768px) {
+    .articles {
+      align-items: center;
+      display: grid;
+      grid-gap: 80px;
+      grid-template-columns: repeat(3, minmax(120px, 510px));
+      grid-template-rows: 1fr;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 1200px;
+      width: 100%;
+    }
+  }
 }
 
 .main-btn {
   margin: 40px calc(50% - 125px);
   width: 250px;
+}
+
+
+.s-order-online {
+  @media screen and (min-width: 768px) {
+    .content-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin: 0 auto;
+      max-width: 1200px;
+
+      .main-content {
+        .h1,
+        .description {
+          text-align: left;
+        }
+
+        .main-btn {
+          margin: 40px 0;
+        }
+      }
+    }
+  }
+}
+
+
+.s-contacts {
+  @media screen and (min-width: 768px) {
+    .content-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin: 0 auto;
+      max-width: 1200px;
+
+      .main-content {
+        .h1,
+        .description {
+          text-align: left;
+        }
+
+        .main-btn {
+          margin: 40px 0;
+        }
+      }
+    }
+  }
 }
