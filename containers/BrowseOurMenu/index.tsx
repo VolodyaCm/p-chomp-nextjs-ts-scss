@@ -23,8 +23,9 @@ const BrowseOurMenuContainer = ({ products }: BrowseOurMenuContainerProps) => {
 
   let filteredProducts = products;
 
-  if (category)
+  if (category) {
     filteredProducts = products.filter((p) => p.category === category);
+  }
 
   return (
     <section className={`container container-mr ${styles['s-our-menu']}`}>

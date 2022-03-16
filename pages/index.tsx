@@ -7,9 +7,10 @@ import Button from '@components/Button';
 import Image from 'next/image';
 import BrowseOurMenuContainer from '@containers/BrowseOurMenu';
 import ProductType from '@prtypes/Product';
+import { getProduts } from '@fireb/db/product';
 
 interface HomePageProps {
-  products: { next: string; data: ProductType[] };
+  products: ProductType[];
 }
 
 const Home: NextPage<HomePageProps> = ({ products }) => {
@@ -93,7 +94,7 @@ const Home: NextPage<HomePageProps> = ({ products }) => {
           </article>
         </div>
       </section>
-      <BrowseOurMenuContainer products={products.data} />
+      <BrowseOurMenuContainer products={products} />
       <section className={`container container-mr ${styles['s-order-online']}`}>
         <div className={styles['content-container']}>
           <Image
@@ -147,8 +148,9 @@ const Home: NextPage<HomePageProps> = ({ products }) => {
 };
 
 export async function getServerSideProps() {
-  const data = await fetch('http://localhost:3000/api/products?size=999');
-  const products: ProductType[] = await data.json();
+  const products: ProductType[] = (await getProduts({
+    limit: 999,
+  })) as ProductType[];
 
   return {
     props: {
