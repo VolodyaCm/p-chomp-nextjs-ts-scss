@@ -1,4 +1,3 @@
-import React, { DetailedHTMLProps, AnchorHTMLAttributes } from 'react';
 import Link from 'next/link';
 import styles from './Link.module.scss';
 import cn from 'classnames';

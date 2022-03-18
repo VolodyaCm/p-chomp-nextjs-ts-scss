@@ -14,9 +14,16 @@ interface TabProps
   > {
   tabs: string[];
   onChangeTab?: (tab: TabType) => void;
+  small?: boolean;
 }
 
-const Tabs = ({ tabs = [], className, onChangeTab, ...props }: TabProps) => {
+const Tabs = ({
+  tabs = [],
+  className,
+  onChangeTab,
+  small,
+  ...props
+}: TabProps) => {
   const [tabsObj, setTabs] = useState(
     tabs.map((t, i) => ({ title: t, selected: i === 0, idx: i }))
   );
@@ -30,6 +37,7 @@ const Tabs = ({ tabs = [], className, onChangeTab, ...props }: TabProps) => {
     <div className={`${styles.tabs} ${className}`} {...props}>
       {tabsObj.map((tab: TabType) => (
         <Button
+          small={small}
           outline={!tab.selected}
           filled={tab.selected}
           primary={tab.selected}

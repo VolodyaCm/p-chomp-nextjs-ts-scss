@@ -3,6 +3,7 @@ import {
   addDoc,
   collection,
   getDocs,
+  getDoc,
   doc,
   deleteDoc,
   query,
@@ -79,4 +80,16 @@ export const getProduts: GetProductsType = async ({
 
 export const deleteProduct = async (id: string) => {
   return deleteDoc(doc(db, 'products', id));
+};
+
+export const getProduct = async (id: string): Promise<ProductType | never> => {
+  const res = await getDoc(doc(db, 'products', id));
+
+  if (!res.exists()) {
+    throw new Error('Product does not exist');
+  }
+
+  const product = { id, ...res.data() } as ProductType;
+
+  return product;
 };

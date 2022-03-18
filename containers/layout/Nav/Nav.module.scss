@@ -1,6 +1,8 @@
 .nav {
   display: grid;
   grid-template-columns: 2fr min-content;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .cover {
@@ -12,7 +14,7 @@
 }
 
 .nav-links-list-container {
-  display: flex;
+  display: none;
   height: 100vh;
   left: 0;
   overflow: hidden;
@@ -41,4 +43,33 @@
 .end-items {
   display: flex;
   gap: 14px;
+}
+
+
+@media screen and (min-width: 1025px) {
+  .nav {
+    .nav-links-list-container {
+      display: flex;
+      height: fit-content;
+      position: static;
+
+      .nav-links-list {
+        flex-direction: row;
+        position: static;
+        transform: translate(0, 0);
+
+        a {
+          padding: 20px 16px;
+        }
+      };
+    }
+
+    .menu-button {
+      display: none;
+    }
+
+    .cart-button {
+      flex-shrink: 0;
+    }
+  }
 }

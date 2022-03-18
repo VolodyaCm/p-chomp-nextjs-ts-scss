@@ -49,67 +49,75 @@ const Nav = () => {
   return (
     <>
       <Cart onClose={closeCart} visible={cartState} />
-      <div className={cn(layoutStyles['section-container'], styles.nav)}>
-        <div className="logo">
-          <Image
-            width="40px"
-            height="51px"
-            src="/static/1_logo.svg"
-            alt="logo"
-          />
-        </div>
+      <div className={cn(layoutStyles['section-container'])}>
+        <div className={styles.nav}>
+          <div className="logo">
+            <Image
+              width="40px"
+              height="51px"
+              src="/static/1_logo.svg"
+              alt="logo"
+            />
+          </div>
 
-        <div className={styles['end-items']}>
-          <Button square primary filled onClick={changeCartState}>
-            <CartIconSVG />
-            <CartCounter />
-          </Button>
+          <div className={styles['end-items']}>
+            {menu && (
+              <div
+                id="target=close-menu"
+                onClick={closeMenu}
+                className={styles.cover}
+              ></div>
+            )}
 
-          <Button
-            className={styles['toggle-button']}
-            square
-            flat
-            filled
-            toggle={false}
-            onClick={changeMenu}
-          >
-            <BarsIconSVG />
-          </Button>
-
-          {menu && (
             <div
-              id="target=close-menu"
-              onClick={closeMenu}
-              className={styles.cover}
-            ></div>
-          )}
-
-          <div
-            id="nav-links-list-container-target"
-            className={styles['nav-links-list-container']}
-          >
-            <nav
-              className={cn(styles['nav-links-list'], {
-                [styles.hide]: !menu,
-                [styles.show]: menu,
-              })}
+              id="nav-links-list-container-target"
+              className={styles['nav-links-list-container']}
             >
-              <Link active={true} href="/home">
-                Home
-              </Link>
-              <Link active={asPath === '/order'} href="/order">
-                Order
-              </Link>
-              <Link active={asPath === '/company'} href="/company">
-                Company
-              </Link>
-              <Link active={asPath === '/faq'} href="/faq">
-                FAQ
-              </Link>
-              <Link active={asPath === '/contact'} href="/contact">
-                Contact
-              </Link>
-            </nav>
+              <nav
+                className={cn(styles['nav-links-list'], {
+                  [styles.hide]: !menu,
+                  [styles.show]: menu,
+                })}
+              >
+                <Link active={true} href="/">
+                  Home
+                </Link>
+                <Link active={asPath === '/order'} href="/order">
+                  Order
+                </Link>
+                <Link active={asPath === '/company'} href="/company">
+                  Company
+                </Link>
+                <Link active={asPath === '/faq'} href="/faq">
+                  FAQ
+                </Link>
+                <Link active={asPath === '/contact'} href="/contact">
+                  Contact
+                </Link>
+              </nav>
+            </div>
+
+            <Button
+              square
+              primary
+              filled
+              className={styles['cart-button']}
+              onClick={changeCartState}
+            >
+              <CartIconSVG />
+              <CartCounter />
+            </Button>
+
+            <Button
+              className={styles['menu-button']}
+              square
+              flat
+              filled
+              toggle={false}
+              onClick={changeMenu}
+            >
+              <BarsIconSVG />
+            </Button>
           </div>
         </div>
       </div>
